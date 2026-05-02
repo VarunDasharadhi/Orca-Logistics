@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Orca Transports Ltd"
+version = "1.0.0"
+id = "artifacts/orca-transports"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18151
+
+[services.development]
+run = "pnpm --filter @workspace/orca-transports run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/orca-transports", "run", "build" ]
+publicDir = "artifacts/orca-transports/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18151"
+BASE_PATH = "/"
