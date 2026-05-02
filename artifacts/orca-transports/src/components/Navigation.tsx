@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/App";
+import logoImg from "@assets/image_1777741042804.png";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,19 +28,18 @@ export default function Navigation() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm py-3"
-          : "bg-transparent py-5"
+          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm py-2"
+          : "bg-transparent py-4"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 bg-primary rotate-45 flex items-center justify-center transition-transform group-hover:rotate-90 duration-500">
-              <div className="w-3 h-3 bg-primary-foreground -rotate-45" />
-            </div>
-            <span className="font-heading font-bold text-2xl tracking-wider text-foreground">
-              ORCA<span className="text-primary">TRANS</span>
-            </span>
+          <a href="#" className="flex items-center gap-2 group" data-testid="link-logo">
+            <img
+              src={logoImg}
+              alt="Orca Transports Ltd"
+              className="h-14 w-auto object-contain"
+            />
           </a>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -47,20 +47,20 @@ export default function Navigation() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
+                className="text-sm font-semibold text-muted-foreground hover:text-primary transition-colors tracking-widest uppercase font-sans"
               >
                 {link.name}
               </a>
             ))}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-none border border-border text-muted-foreground hover:text-primary hover:border-primary transition-colors"
+              className="p-2 border border-border text-muted-foreground hover:text-primary hover:border-primary transition-colors rounded-sm"
               aria-label="Toggle dark mode"
               data-testid="button-theme-toggle"
             >
               {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
             </button>
-            <Button asChild className="rounded-none bg-primary text-primary-foreground hover:bg-primary/90 font-heading font-bold tracking-wider px-6">
+            <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading tracking-widest px-6 rounded-sm">
               <a href="#contact">GET A QUOTE</a>
             </Button>
           </nav>
@@ -76,6 +76,7 @@ export default function Navigation() {
             <button
               className="text-foreground p-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              data-testid="button-mobile-menu"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -89,13 +90,13 @@ export default function Navigation() {
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-foreground p-2 hover:bg-muted transition-colors tracking-wide uppercase border-b border-border/50"
+              className="text-sm font-semibold text-foreground p-2 hover:bg-muted transition-colors tracking-widest uppercase border-b border-border/50"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {link.name}
             </a>
           ))}
-          <Button asChild className="w-full rounded-none bg-primary mt-4">
+          <Button asChild className="w-full bg-primary font-heading tracking-widest mt-4 rounded-sm">
             <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>GET A QUOTE</a>
           </Button>
         </div>

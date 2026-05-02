@@ -29,7 +29,7 @@ function Counter({ from, to, duration = 2, suffix = "" }: { from: number; to: nu
   }, [isInView, from, to, duration]);
 
   return (
-    <span ref={nodeRef} className="text-5xl md:text-6xl font-extrabold text-primary font-heading tabular-nums">
+    <span ref={nodeRef} className="text-5xl md:text-6xl font-heading text-primary tabular-nums tracking-wider">
       {count.toLocaleString()}{suffix}
     </span>
   );
@@ -56,19 +56,24 @@ export default function WhyChooseUs() {
           >
             <div className="flex items-center gap-3 mb-4">
               <div className="h-[2px] w-12 bg-primary"></div>
-              <span className="text-primary font-bold tracking-widest uppercase text-sm">Why Choose Orca</span>
+              <span className="text-primary font-semibold tracking-widest uppercase text-sm font-sans">Why Choose Orca</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-foreground mb-6">THE POWER TO DELIVER</h2>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              We don't just move freight; we optimize supply chains. By combining raw industrial capability with cutting-edge tracking technology, we provide transparency and reliability that our competitors can't match.
+            <h2 className="text-4xl md:text-5xl font-heading text-foreground mb-6 tracking-widest">THE POWER TO DELIVER</h2>
+            <p className="text-lg text-muted-foreground mb-6 leading-relaxed font-sans">
+              We don't just move freight — we optimise supply chains. Combining raw industrial capability with cutting-edge tracking, we deliver transparency and reliability our competitors can't match.
             </p>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed font-sans">
               When a shipment absolutely has to be there, businesses trust Orca.
             </p>
 
             <ul className="space-y-4">
-              {['Real-time GPS tracking on all vehicles', 'Dedicated account management team', 'Fully compliant with all national transport regulations', 'Automated proof of delivery'].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-muted-foreground">
+              {[
+                'Real-time GPS tracking on all vehicles',
+                'Dedicated account management team',
+                'Fully compliant with all national transport regulations',
+                'Automated proof of delivery',
+              ].map((item, i) => (
+                <li key={i} className="flex items-center gap-3 text-muted-foreground font-sans">
                   <div className="w-5 h-5 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0">
                     <div className="w-2 h-2 rounded-full bg-primary" />
                   </div>
@@ -86,10 +91,10 @@ export default function WhyChooseUs() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="bg-card border border-border p-8 flex flex-col justify-center border-l-4 border-l-primary shadow-sm"
+                className="bg-card border border-border p-8 flex flex-col justify-center border-l-4 border-l-primary shadow-sm rounded-sm"
               >
                 <Counter from={0} to={stat.value} suffix={stat.suffix} />
-                <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider mt-2">{stat.label}</span>
+                <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mt-2 font-sans">{stat.label}</span>
               </motion.div>
             ))}
           </div>

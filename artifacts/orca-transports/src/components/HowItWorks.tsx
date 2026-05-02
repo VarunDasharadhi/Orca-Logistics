@@ -14,7 +14,7 @@ const steps = [
   {
     num: "03",
     title: "DELIVERED",
-    desc: "Secure handover with instant digital proof-of-delivery (POD) and automated invoicing."
+    desc: "Secure handover with instant digital proof-of-delivery and automated invoicing."
   }
 ];
 
@@ -24,8 +24,12 @@ export default function HowItWorks() {
       <div className="container mx-auto px-4 md:px-6">
 
         <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-foreground mb-4">HOW IT WORKS</h2>
-          <div className="w-24 h-1 bg-primary"></div>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-[2px] w-8 bg-primary"></div>
+            <span className="text-primary font-semibold tracking-widest uppercase text-sm font-sans">Simple Process</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-heading text-foreground tracking-widest mb-4">HOW IT WORKS</h2>
+          <div className="w-20 h-1 bg-primary rounded-full"></div>
         </div>
 
         <div className="relative">
@@ -41,11 +45,11 @@ export default function HowItWorks() {
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 className="relative"
               >
-                <div className="w-24 h-24 bg-card border-2 border-primary rounded-full flex items-center justify-center text-3xl font-heading font-bold text-primary mb-6 shadow-md mx-auto md:mx-0">
-                  {step.num}
+                <div className="w-24 h-24 bg-card border-2 border-primary rounded-full flex items-center justify-center mb-6 shadow-md mx-auto md:mx-0">
+                  <span className="text-3xl font-heading text-primary tracking-wider">{step.num}</span>
                 </div>
-                <h3 className="text-2xl font-bold text-foreground mb-3 text-center md:text-left">{step.title}</h3>
-                <p className="text-muted-foreground text-center md:text-left text-lg leading-relaxed">
+                <h3 className="text-2xl font-heading text-foreground mb-3 text-center md:text-left tracking-widest">{step.title}</h3>
+                <p className="text-muted-foreground text-center md:text-left text-base leading-relaxed font-sans">
                   {step.desc}
                 </p>
               </motion.div>
