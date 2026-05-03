@@ -28,32 +28,36 @@ export default function Navigation() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm py-1"
-          : "bg-transparent py-2"
+          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm"
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between">
-          <a href="#" className="flex items-center gap-3 group" data-testid="link-logo">
+        <div className="flex items-center justify-between h-20">
+
+          {/* Logo + name — fixed width so it never pushes into the nav */}
+          <a
+            href="#"
+            className="flex items-center gap-2 shrink-0 group"
+            data-testid="link-logo"
+          >
             <img
               src={logoImg}
-              alt="Orca Transports Ltd"
-              className={`object-contain transition-all duration-300 ${
-                isScrolled ? "h-14 w-14" : "h-20 w-20"
-              }`}
+              alt="Orca Transports"
+              className="h-14 w-14 object-contain"
             />
-            <div className="hidden sm:block">
-              <div className="font-heading text-xl tracking-widest text-foreground leading-none">ORCA TRANSPORTS</div>
-              <div className="font-sans text-xs tracking-[0.3em] text-primary uppercase mt-0.5">Ltd</div>
-            </div>
+            <span className="hidden sm:block font-heading text-lg tracking-widest text-foreground whitespace-nowrap">
+              ORCA TRANSPORTS
+            </span>
           </a>
 
-          <nav className="hidden md:flex items-center gap-8">
+          {/* Desktop nav — pushed to the right, never wraps */}
+          <nav className="hidden md:flex items-center gap-6 shrink-0">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-semibold text-muted-foreground hover:text-primary transition-colors tracking-widest uppercase font-sans"
+                className="text-sm font-semibold text-muted-foreground hover:text-primary transition-colors tracking-widest uppercase font-sans whitespace-nowrap"
               >
                 {link.name}
               </a>
@@ -66,12 +70,16 @@ export default function Navigation() {
             >
               {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
             </button>
-            <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading tracking-widest px-6 rounded-sm">
+            <Button
+              asChild
+              className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading tracking-widest px-5 rounded-sm whitespace-nowrap"
+            >
               <a href="#contact">GET A QUOTE</a>
             </Button>
           </nav>
 
-          <div className="md:hidden flex items-center gap-2">
+          {/* Mobile controls */}
+          <div className="md:hidden flex items-center gap-2 shrink-0">
             <button
               onClick={toggleTheme}
               className="p-2 text-muted-foreground hover:text-primary transition-colors"
@@ -90,6 +98,7 @@ export default function Navigation() {
         </div>
       </div>
 
+      {/* Mobile menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border p-4 flex flex-col gap-4 shadow-lg">
           {navLinks.map((link) => (
@@ -102,8 +111,13 @@ export default function Navigation() {
               {link.name}
             </a>
           ))}
-          <Button asChild className="w-full bg-primary font-heading tracking-widest mt-4 rounded-sm">
-            <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>GET A QUOTE</a>
+          <Button
+            asChild
+            className="w-full bg-primary font-heading tracking-widest mt-2 rounded-sm"
+          >
+            <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
+              GET A QUOTE
+            </a>
           </Button>
         </div>
       )}
