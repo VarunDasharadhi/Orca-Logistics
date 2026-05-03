@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/App";
-import logoImg from "@assets/image_1777741042804.png";
+import logoImg from "@/assets/logo-nobg.png";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,18 +28,24 @@ export default function Navigation() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm py-2"
-          : "bg-transparent py-4"
+          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm py-1"
+          : "bg-transparent py-2"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2 group" data-testid="link-logo">
+          <a href="#" className="flex items-center gap-3 group" data-testid="link-logo">
             <img
               src={logoImg}
               alt="Orca Transports Ltd"
-              className="h-14 w-auto object-contain"
+              className={`object-contain transition-all duration-300 ${
+                isScrolled ? "h-14 w-14" : "h-20 w-20"
+              }`}
             />
+            <div className="hidden sm:block">
+              <div className="font-heading text-xl tracking-widest text-foreground leading-none">ORCA TRANSPORTS</div>
+              <div className="font-sans text-xs tracking-[0.3em] text-primary uppercase mt-0.5">Ltd</div>
+            </div>
           </a>
 
           <nav className="hidden md:flex items-center gap-8">

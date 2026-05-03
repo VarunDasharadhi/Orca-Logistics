@@ -1,4 +1,4 @@
-import logoImg from "@assets/image_1777741042804.png";
+import logoImg from "@/assets/logo-nobg.png";
 
 export default function Footer() {
   return (
