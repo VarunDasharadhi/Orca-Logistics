@@ -52,3 +52,6 @@ Thumbs.db
 .env
 .env.*
 !.env*.example
+
+# gitignored scratch space for agent working artifacts
+.superpowers/

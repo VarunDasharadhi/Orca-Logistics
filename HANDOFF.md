@@ -1,3 +1,9 @@
+# HANDOFF, RETIRED 2026-09-10
+
+This file is retired. Never append new session entries here. Current facts are in `STATE.md`,
+dated decisions in `DECISIONS.md`, gotchas in `GOTCHAS.md`, session narrative in
+`docs/journal/`. This file's content below is kept as history only.
+
 # Orca Logistics
 
 ## Latest session (2026-07-09, evening) — Local dev environment working end to end on Windows
