@@ -11,7 +11,7 @@ export default function Footer() {
               <img
                 src={logoImg}
                 alt="Orca Transports Ltd"
-                className="h-20 w-auto object-contain brightness-0 invert opacity-90"
+                className="h-20 w-auto object-contain brightness-0 invert opacity-90 dark:brightness-100 dark:invert-0 dark:opacity-100"
               />
             </div>
             <p className="text-primary-foreground/70 max-w-sm text-sm leading-relaxed">

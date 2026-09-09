@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useTheme } from "@/App";
 import logoImg from "@/assets/logo-nobg.png";
+import logoImgDark from "@/assets/logo-nobg-dark.png";
 
 const VanSvg = ({ className = "" }) => (
   <svg viewBox="0 0 100 40" fill="currentColor" className={className} preserveAspectRatio="xMidYMid meet">
@@ -38,6 +40,7 @@ const LorrySvg = ({ className = "" }) => (
 );
 
 export default function Hero() {
+  const { theme } = useTheme();
   return (
     <section className="relative min-h-[100dvh] flex flex-col justify-center overflow-hidden bg-background pt-20">
       {/* Grid background */}
@@ -120,7 +123,7 @@ export default function Hero() {
             <div className="absolute w-[380px] h-[380px] rounded-full border border-border/60" />
 
             <img
-              src={logoImg}
+              src={theme === "dark" ? logoImgDark : logoImg}
               alt="Orca Transports Ltd"
               className="relative z-10 w-[340px] h-[340px] object-contain drop-shadow-2xl"
             />

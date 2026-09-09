@@ -26,6 +26,8 @@ function Counter({ from, to, duration = 2, suffix = "" }: { from: number; to: nu
       animationFrame = requestAnimationFrame(animate);
       return () => cancelAnimationFrame(animationFrame);
     }
+
+    return undefined;
   }, [isInView, from, to, duration]);
 
   return (

@@ -3,6 +3,7 @@ import { Menu, X, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/App";
 import logoImg from "@/assets/logo-nobg.png";
+import logoImgDark from "@/assets/logo-nobg-dark.png";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,7 +43,7 @@ export default function Navigation() {
             data-testid="link-logo"
           >
             <img
-              src={logoImg}
+              src={theme === "dark" ? logoImgDark : logoImg}
               alt="Orca Transports"
               className="h-14 w-14 object-contain"
             />

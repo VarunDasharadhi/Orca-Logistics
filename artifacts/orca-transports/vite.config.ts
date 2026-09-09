@@ -63,6 +63,14 @@ export default defineConfig({
     strictPort: true,
     host: "0.0.0.0",
     allowedHosts: true,
+    // Mirrors Replit's prod router, which serves this app and the API
+    // under the same origin (api-server runs on PORT=8080 locally).
+    proxy: {
+      "/api": {
+        target: "http://localhost:8080",
+        changeOrigin: true,
+      },
+    },
     fs: {
       strict: true,
     },
