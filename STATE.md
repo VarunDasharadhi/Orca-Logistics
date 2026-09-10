@@ -10,8 +10,8 @@ deleting it. Never describe uncommitted work here, `git status` covers that live
 ## What this is
 
 "Orca Transports Ltd" logistics marketing site plus its Express API, pnpm workspace monorepo
-(see `AGENTS.md` for the package breakdown). Built for Replit production deploy. No other repo in
-`~\repos\` depends on this or is depended on by it, as far as the repo's own files
+(see `AGENTS.md` for the package breakdown). Built for Replit production deploy. No sibling repo
+(`..\<repo>`) depends on this or is depended on by it, as far as the repo's own tracked files
 show.
 
 ## Where the code stands

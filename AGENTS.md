@@ -14,9 +14,9 @@ currently imports), `lib/api-client-react` / `lib/api-zod` / `lib/api-spec` (gen
 packages from an OpenAPI spec). Built to run on Replit in production and locally for development.
 
 Dormant since May 2026 apart from one session on 2026-07-09 that got local Windows dev working end
-to end; no code changes since. No sibling repo in `~\repos\` is referenced anywhere
-in `README.md`, `replit.md`, or the retired `HANDOFF.md`; as far as those show, this repo stands
-alone.
+to end; no code changes since. No sibling repo (`..\<repo>`) is referenced in any tracked file
+(checked `README.md`, `replit.md`, and the retired `HANDOFF.md`); as far as those show, this repo
+stands alone.
 
 ## Session start
 
